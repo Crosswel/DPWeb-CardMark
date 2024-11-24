@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-bottom: 2px solid #ccc;
+        }
+        header img {
+            height: 50px;
+        }
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+        nav a, .btn {
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .search-bar input {
+            padding: 5px;
+            width: 300px;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .top-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .card {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        table th {
+            background-color: #f4f4f4;
+        }
+    </style>
+
+<style>  /* Estilos para a navbar */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden; /* Impede rolagem horizontal */
+    }
+
+    header {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .menu-icon {
+        cursor: pointer;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 10px;
+        border: none;
+        background: none;
+        color: white;
+    }
+
+    .dropdown-menu {
+        position: fixed;
+        top: 0;
+        left: -250px; /* Inicialmente escondido fora da tela */
+        width: 250px;
+        height: 100%;
+        background-color: #007bff; /* Navbar toda azul */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        padding-top: 20px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .dropdown-menu a {
+        display: block;
+        text-decoration: none;
+        padding: 10px 15px;
+        color: white; /* Texto branco por padrão */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Linha separadora semi-transparente */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: white; /* Fica branco ao passar o mouse */
+        color: #007bff; /* Texto fica azul */
+    }
+
+    .main-content {
+        transition: transform 0.3s ease;
+        padding: 20px;
+    }
+
+    /* Classe para abrir o menu */
+    .dropdown-menu.open {
+        left: 0;
+    }
+
+    .main-content.shifted {
+        transform: translateX(-250px); /* Move o conteúdo para a esquerda */
+    }
+</style>
+
+<script>
+    // Função para abrir ou fechar o menu
+    function toggleMenu() {
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+        const mainContent = document.querySelector(".main-content");
+
+        // Alterna entre abrir e fechar o menu
+        dropdownMenu.classList.toggle("open");
+    }
+
+    // Fecha o menu se clicar fora dele
+    window.addEventListener("click", function (event) {
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+        const mainContent = document.querySelector(".main-content");
+        const menuIcon = document.querySelector(".menu-icon");
+
+        if (!dropdownMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+            // Fecha o menu
+            dropdownMenu.classList.remove("open");
+        }
+    });
+</script>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="dropdown-menu">
+                <a href="yugioh.html"><img src="../static/yugi.png" alt="yu-gi-oh"></a>
+                <a href="vanguard.html"><img src="../static/Vg_new_logo.png" alt="Vanguard"></a>
+                <a href="pokemon.html"><img src="../static/Pokemon-Logo.png" alt="Pokemon"></a>
+            </div>
+        </nav>
+        <a href="inicio.html"> <img src="../static/CarMark.png" alt="Logo"> </a>
+        <div class="search-bar">
+            <input type="text" placeholder="Exemplo Dragonite">
+            <button class="btn">Pesquisar</button>
+        </div>
+        <nav>
+            <a href="login.html">Login</a>
+            <a href="register.html">Registrar</a>
+            <a href="profile.php">Perfil</a>
+            <a href="cart.php">Carrinho</a>
+        </nav>
+        
+    </header>
+    <main class="main-content">
+        <h2>Top 10 Cards</h2>
+        <div class="top-cards">
+            <div class="card">
+                <img src="../static/Alden.png" alt="Carta 1" style="max-width: 100px;">
+                <p>Top 1: Destined One of Protection, Alden</p>
+            </div>
+            <div class="card">
+                <img src="../static/Dragon.png" alt="Carta 2" style="max-width: 100px;">
+                <p>Top 2: Heavenly Defense Dragon, Wedgeglimpse Dragon</p>
+            </div>
+            <div class="card">
+                <img src="../static/Shueren.png" alt="Carta 3" style="max-width: 100px;">
+                <p>Top 3: Momentary Stillness, Shureen</p>
+            </div>
+        </div>        
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome da Carta</th>
+                    <th>Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>04</td>
+                    <td>Destined One of Protection, Alden</td>
+                    <td>€ 10,00</td>
+                </tr>
+                <tr>
+                    <td>05</td>
+                    <td>Heavenly Defense Dragon, Wedgeglimpse Dragon</td>
+                    <td>€ 15,00</td>
+                </tr>
+                <tr>
+                    <td>06</td>
+                    <td>Momentary Stillness, Shureen</td>
+                    <td>€ 20,00</td>
+                </tr>
+                <tr>
+                    <td>07</td>
+                    <td>Destined One of Protection, Alden</td>
+                    <td>€ 10,00</td>
+                </tr>
+                <tr>
+                    <td>08</td>
+                    <td>Heavenly Defense Dragon, Wedgeglimpse Dragon</td>
+                    <td>€ 15,00</td>
+                </tr>
+                <tr>
+                    <td>09</td>
+                    <td>Momentary Stillness, Shureen</td>
+                    <td>€ 20,00</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Momentary Stillness, Shureen</td>
+                    <td>€ 20,00</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
