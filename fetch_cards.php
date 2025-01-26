@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
         $cards[] = $row;
     }
 
-    // Retornar os dados em formato JSON
+    // Devolver os dados em formato JSON
     header('Content-Type: application/json');
     echo json_encode($cards);
 } else {
