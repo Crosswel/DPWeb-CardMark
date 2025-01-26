@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 topCardsContainer.appendChild(cardDiv);
             });
 
-            // Adicionar todos os cards na tabela
+            // Adicionar todos as cartas na tabela
             cards.forEach(card => {
     const imgSrc = card.imagem && card.imagem.trim() !== "" ? `http://localhost/static/${card.imagem.trim()}` : `http://localhost/static/placeholder.png`;
     console.log(`Imagem para ${card.nome_carta}: ${imgSrc}`);
