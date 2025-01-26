@@ -108,7 +108,7 @@
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Fazendo uma requisição para o arquivo PHP
+            
             fetch("fetch_cards.php")
                 .then(response => {
                     if (!response.ok) {
@@ -124,7 +124,7 @@
                     topCardsContainer.innerHTML = "";
                     tableBody.innerHTML = "";
 
-                    // Adicionar os 3 primeiros cards na seção "Top 3"
+                    // Adicionar as 3 primeiras cartas na seção "Top 3"
                     cards.slice(0, 3).forEach((card, index) => {
                         const cardDiv = document.createElement("div");
                         cardDiv.classList.add("card");
@@ -135,7 +135,7 @@
                         topCardsContainer.appendChild(cardDiv);
                     });
 
-                    // Adicionar todos os 20 cards na tabela
+                    // Adicionar todas as 20 cartas na tabela
                     cards.forEach(card => {
                         const row = document.createElement("tr");
                         row.innerHTML = `
