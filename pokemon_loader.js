@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             topCardsContainer.innerHTML = "";
             tableBody.innerHTML = "";
 
-            // Adicionar os 3 primeiros cards na seção "Top 3"
+            // Adicionar as 3 primeiras cartas na seção "Top 3"
             cards.slice(0, 3).forEach((card, index) => {
                 const imgSrc = card.imagem && card.imagem.trim() !== "" ? `http://localhost/static/${card.imagem.trim()}` : `http://localhost/static/placeholder.png`;
                 console.log(`Imagem para Top ${index + 1}: ${imgSrc}`); // Log do caminho da imagem
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 topCardsContainer.appendChild(cardDiv);
             });
 
-            // Adicionar todos os 20 cards na tabela
+            // Adicionar todas as 20 cartas na tabela
             cards.forEach(card => {
                 const imgSrc = card.imagem && card.imagem.trim() !== "" ? `http://localhost/static/${card.imagem.trim()}` : `http://localhost/static/placeholder.png`;
                 console.log(`Imagem para ID ${card.id_pk_carta}: ${imgSrc}`); // Log do caminho da imagem
