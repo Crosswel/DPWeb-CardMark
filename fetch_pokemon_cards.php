@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $cards[] = $row;
     }
-    // Retornar os dados em formato JSON
+    // Devolver os dados em formato JSON
     header('Content-Type: application/json');
     echo json_encode($cards);
 } else {
