@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     searchButton.addEventListener("click", function () {
         const query = searchInput.value.trim().toLowerCase();
 
-        // Caso o campo de busca esteja vazio, carregar todas as cartas
+        // Caso o campo de procura esteja vazio, carregar todas as cartas
         if (!query) {
             loadAllCards();
             return;
