@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         realizarBusca();
     });
 
-    // Adicionar evento para buscar ao pressionar Enter
+    // Adicionar evento para procurar ao pressionar Enter
     searchInput.addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
             realizarBusca();
