@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Fazer uma requisição para buscar as cartas
+        // Fazer uma requisição para procurar as cartas
         fetch("fetch_cards.php")
             .then(response => {
                 if (!response.ok) {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(cards => {
                 console.log("Dados recebidos para procura:", cards);
 
-                // Filtrar os cards com base na procura
+                // Filtrar as cartas com base na procura
                 const filteredCards = cards.filter(card =>
                     card.nome_carta.toLowerCase().includes(query)
                 );
