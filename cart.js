@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 const articleValue = data.total || 0;
-                const shippingCost = 7.0; // Fixed shipping cost
+                const shippingCost = 7.0; // taxa de entrega
                 const totalPrice = articleValue + shippingCost;
 
                 articleValueElement.textContent = `${articleValue.toFixed(2)} €`;
