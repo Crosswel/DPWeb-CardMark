@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Fazendo uma requisição para o arquivo PHP específico de Pokémon
+   
     fetch("fetch_pokemon_cards.php")
         .then(response => {
             if (!response.ok) {
