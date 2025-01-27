@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-bottom: 2px solid #0056b3;
+        }
+        header img {
+            height: 50px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #0056b3;
+            color: white;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #003f7f;
+        }
+        .logo-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-bar img {
+            height: 40px;
+            cursor: pointer;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .top-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .card {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        table th {
+            background-color: #f4f4f4;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            width: 250px;
+            background-color: #007bff;
+            color: white;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            transition: left 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .sidebar img {
+            width: 100px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            border: none;
+            background: none;
+            color: white;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            fetch("fetch_pokemon_cards.php")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao buscar os dados: " + response.status);
+                    }
+                    return response.json();
+                })
+                .then(cards => {
+                    const topCardsContainer = document.querySelector(".top-cards");
+                    const tableBody = document.querySelector("table tbody");
+
+                    // Limpar conteúdo existente
+                    topCardsContainer.innerHTML = "";
+                    tableBody.innerHTML = "";
+
+                    // Adicionar as 3 primeiras cartas na seção "Top 3"
+                    cards.slice(0, 3).forEach((card, index) => {
+                        const cardDiv = document.createElement("div");
+                        cardDiv.classList.add("card");
+                        cardDiv.innerHTML = `
+                            <img src="${card.imagem || '../static/placeholder.png'}" alt="${card.nome_carta}" style="max-width: 100px;">
+                            <p>Top ${index + 1}: ${card.nome_carta}</p>
+                        `;
+                        topCardsContainer.appendChild(cardDiv);
+                    });
+
+                    // Adicionar todas as 20 cartas na tabela
+                    cards.forEach(card => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${card.id_vg_carta}</td>
+                            <td>${card.nome_carta}</td>
+                            <td>€ ${card.preco.toFixed(2)}</td>
+                            <td><button class="btn"><img src="../static/cart_icon.png" alt="Add to Cart"></button></td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar os dados das cartas:", error);
+                });
+        });
+
+        function toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.classList.toggle("open");
+        }
+
+        window.addEventListener("click", function (event) {
+            const sidebar = document.querySelector(".sidebar");
+            const menuIcon = document.querySelector(".menu-icon");
+            if (!sidebar.contains(event.target) && !menuIcon.contains(event.target)) {
+                sidebar.classList.remove("open");
+            }
+        });
+
+ // Cart logic
+        let cart = [];
+        function addToCart(itemId, itemName, itemPrice) {
+            const existingItem = cart.find(item => item.id === itemId);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ id: itemId, name: itemName, price: parseFloat(itemPrice), quantity: 1 });
+            }
+            updateCartCount();
+            alert(`${itemName} has been added to the cart!`);
+        }
+
+        function updateCartCount() {
+            const cartIcon = document.getElementById('cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartIcon.textContent = totalItems;
+        }
+
+        function goToCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = 'carro_pokemon.html';
+        }
+    </script>
+</head>
+<body>
+    <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px; background-color: #007bff; color: white;">
+        <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+        
+        <a href="login_pokemon.html">
+            <img src="http://localhost/static/Pokemon-Logo.png" alt="Pokemon" style="width: 150px; height: auto;">
+        </a>
+        
+        <div style="display: flex; align-items: center; flex-grow: 1; justify-content: center; gap: 20px;">
+            <a>
+                <img src="http://localhost/static/carmark.png" alt="CardMark Logo" style="height: 60px; width: auto;">
+            </a>
+            <div style="display: flex; align-items: center;">
+                <input type="text" id="searchInput" placeholder="Exemplo Pikachu" style="padding: 10px; font-size: 16px; border: 2px solid #ccc; border-radius: 8px; width: 300px;">
+                <button id="searchButton" style="background-color: #007bff; border: none; padding: 10px; border-radius: 8px; cursor: pointer; margin-left: 10px;">
+                    <img src="http://localhost/static/gotcha.png" alt="Gotcha" style="width: 60px; height: 60px;">
+                </button>
+            </div>
+        </div>
+        
+        <nav style="display: flex; align-items: center; gap: 10px;">
+            <a href="profile.html" style="text-decoration: none; padding: 10px; background-color: #0056b3; color: white; border-radius: 5px;"><img src="../grupo204/static/profile.png" alt="Profile"></a>
+            <a href="carro.html" style="position: relative;">
+                <img src="../grupo204/static/carrinho.png" alt="Cart" style="width: 50px; height: 50px;">
+                <span id="cart-count" style="position: absolute; top: 0; right: 0; background-color: red; color: white; border-radius: 50%; padding: 5px 10px; font-size: 14px;">0</span>
+            </a>
+        </nav>
+    </header>
+    <div class="sidebar">
+        <a href="login_vanguard.html"><img src="../grupo204/static/Vg_new_logo.png" alt="Vanguard"></a>
+        <a href="login_yugioh.html"><img src="../grupo204/static/yugi.png" alt="Yu-Gi-Oh"></a>
+    </div>
+    <main class="main-content">
+        <h2>Top 20 Cards</h2>
+        <div class="top-cards">
+            <!-- As cartas serão carregadas dinamicamente aqui -->
+        </div>        
+        <table>
+            <thead>
+                <tr>
+                    <th>Box Set</th>
+                    <th>Nome da Carta</th>
+                    <th>Preço</th>
+                    <th>Comprar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- As linhas serão carregadas dinamicamente aqui -->
+            </tbody>
+        </table>
+    </main>
+    <script src="pokemon_loader.js"></script>
+    <script src="search_pk.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
