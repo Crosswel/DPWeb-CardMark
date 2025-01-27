@@ -38,7 +38,7 @@ INSERT INTO `cartas_pokemon` (`id_pk_carta`, `nome_carta`, `box_set`, `preco`, `
 	(2, 'Buddy-Buddy Poffin', 'TEF', 0.02, '../static/pk2.png', 10),
 	(3, 'Ceruledge ex', 'SSP', 1.99, '../static/pk3.png', 10),
 	(4, 'Dusknoir', 'SFA', 0.06, '../static/pk4.png', 10),
-	(5, 'Earthen Vessel', 'PAR', 0.02, '..static/pk5.png', 10),
+	(5, 'Earthen Vessel', 'PAR', 0.02, '../static/pk5.png', 10),
 	(6, 'Alolan Exeggutor ex', 'SSP', 0.49, '../static/pk6.png', 10),
 	(7, 'Fezandipiti ex', 'SFA', 4.99, '../static/pk7.png', 10),
 	(8, 'Garchomp ex', 'PAR', 1.50, '../static/pk8.png', 10),
