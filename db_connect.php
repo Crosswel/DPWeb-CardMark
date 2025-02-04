@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";  
-$user = "root";      
-$pass = "";          
+$user = "web";      
+$pass = "web";          
 $dbname = "cartas";  
 
 $conn = new mysqli($host, $user, $pass, $dbname);
