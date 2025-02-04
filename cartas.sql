@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 
 --
 -- Base de dados: `cartas`
---
-
--- --------------------------------------------------------
-
+-- A despejar estrutura da base de dados para grupo203
+DROP DATABASE IF EXISTS `cartas`;
+CREATE DATABASE IF NOT EXISTS `cartas` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `cartas`;
 --
 -- Estrutura da tabela `cartas`
 --
