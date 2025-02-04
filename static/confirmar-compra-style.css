@@ -1,0 +1,53 @@
+/* Estilo do corpo */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #001f4d, #ffffff);
+    background-attachment: fixed; /* Mantém o fundo fixo */
+    background-size: cover; /* Faz o fundo ocupar toda a tela */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Garante que o fundo cubra toda a altura da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centralizar o conteúdo */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    color: #003366;
+}
+
+/* Esconder os campos até que o usuário selecione uma opção */
+.hidden {
+    display: none;
+}
+
+/* Estilo dos campos de input */
+input[type="text"], input[type="email"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botão de confirmação */
+.confirm-btn {
+    background: green;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+}

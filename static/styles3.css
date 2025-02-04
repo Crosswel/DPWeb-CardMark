@@ -1,0 +1,89 @@
+/* reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* corpo */
+body {
+    background: linear-gradient(to bottom, #001f3f, #008cff, #d3f1ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* container principal */
+.login-container, .register-container {
+    display: flex;
+    width: 800px;
+    height: 400px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+/* Secção esquerda */
+.login-left, .register-left {
+    background: black;
+    color: white;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-left img, .register-left img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.login-left a, .register-left a {
+    color: #008cff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Secção direita */
+.login-right, .register-right {
+    width: 65%;
+    padding: 40px;
+}
+
+.login-right h2, .register-right h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}

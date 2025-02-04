@@ -1,0 +1,86 @@
+/* Fundo */
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #001F3F, #ffffff);
+}
+
+/* Centraliza o conteúdo */
+.container {
+    width: 60%;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    flex-grow: 1;  /* Faz a div crescer e empurrar o rodapé */
+}
+
+/* Tabela formatada */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Imagens menores e centralizadas */
+img {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Caixa para cada compra */
+.compra-box {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    background-color: transparent;
+    color: black;
+    padding: 10px 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.btn-voltar:hover {
+    background-color: #ddd;
+}
+
+/* Ajuste do rodapé para evitar espaço em branco */
+footer {
+    background: transparent;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}

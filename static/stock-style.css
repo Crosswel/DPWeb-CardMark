@@ -1,0 +1,99 @@
+/* Fundo degradê do azul escuro para branco */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #001F3F, #ffffff);
+    height: 100vh;
+}
+
+/* Centraliza o conteúdo principal */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Tabela formatada */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Imagens menores e centralizadas */
+img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Botões de quantidade */
+.quantidade-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantidade-form button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    border: none;
+    background-color: transparent; /* Fundo transparente */
+    color: black; /* Texto preto */
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.quantidade-form button:hover {
+    background-color: #ddd;
+}
+
+/* Botão de remover */
+.remove-btn {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.remove-btn:hover {
+    text-decoration: underline;
+}
+
+/* Botão Voltar estilizado */
+.btn-voltar {
+    background-color: transparent;
+    color: black; /* Texto preto */
+    padding: 10px 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.btn-voltar:hover {
+    background-color: #ddd;
+}

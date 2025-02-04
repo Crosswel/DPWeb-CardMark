@@ -1,0 +1,103 @@
+body {
+    background: linear-gradient(to bottom, #000428, #004e92, white);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 100vh; /* Corrige o problema do background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal do carrinho */
+.cart-container {
+    max-width: 800px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+h1 {
+    color: #004e92;
+}
+
+/* Mensagem de carrinho vazio */
+.empty-cart {
+    font-size: 18px;
+    color: #ff0000;
+}
+
+/* Tabela de produtos */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #004e92;
+    color: white;
+}
+
+/* Imagem do produto */
+td img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Botão para continuar a compra */
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #004e92;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background-color: #002f6c;
+}
+
+
+
+/* Estilos da página de Finalizar Compra */
+.summary {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+/* Botão de finalizar compra */
+.checkout-btn, .confirm-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover, .confirm-btn:hover {
+    background-color: #218838;
+}

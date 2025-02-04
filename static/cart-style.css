@@ -1,0 +1,126 @@
+/* Fundo */
+body {
+    background: linear-gradient(to bottom, #00082E, #1E3A7D, #3B75C1, #E0EAF2);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Centralizar o container do carrinho */
+.cart-container {
+    background: white;
+    color: black;
+    width: 80%;
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Título do carrinho */
+h1 {
+    color: #003366;
+}
+
+/* Estilo da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #003366;
+    color: white;
+}
+
+/* Ajuste das imagens dentro da tabela */
+.cart-img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Botão de remover */
+.remove-btn {
+    background: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+/* Estilo do total */
+.summary {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Botões gerais */
+.back-btn, .checkout-btn, .clear-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
+}
+
+/* Estilos dos botões específicos */
+.back-btn {
+    background: #007bff;
+    color: white;
+}
+
+.back-btn:hover {
+    background: #0056b3;
+}
+
+.checkout-btn {
+    background: #28a745;
+    color: white;
+}
+
+.checkout-btn:hover {
+    background: #218838;
+}
+
+.clear-btn {
+    background: #ff0000;
+    color: white;
+}
+
+.clear-btn:hover {
+    background: #cc0000;
+}
+
+/* Para evitar bugs na parte inferior */
+html, body {
+    height: 100%;
+}
+
