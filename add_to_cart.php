@@ -1,37 +1,33 @@
 <?php
 session_start();
-include 'db_connection.php';
 
-$user_id = $_SESSION['user_id'];
-$input = json_decode(file_get_contents('php://input'), true);
-$card_id = $input['card_id'];
-
-if (!$user_id || !$card_id) {
-    echo json_encode(['success' => false, 'message' => 'Dados inválidos.']);
+if (!isset($_SESSION['user_id'])) {
+    echo "Usuário não logado.";
     exit;
 }
 
-// Verificar a quantidade disponível
-$query = $conn->prepare("SELECT quantidade FROM cartas_vg WHERE id_vg_carta = ?");
-$query->bind_param("i", $card_id);
-$query->execute();
-$result = $query->get_result()->fetch_assoc();
-$quantidade_disponivel = $result['quantidade'] ?? 0;
-
-if ($quantidade_disponivel <= 0) {
-    echo json_encode(['success' => false, 'message' => 'Estoque insuficiente.']);
+if (!isset($_POST['id_carta'])) {
+    echo json_encode(["success" => false, "message" => "ID inválido"]);
     exit;
 }
 
-// Adicionar ao carrinho ou atualizar
-$query = $conn->prepare("INSERT INTO compra (user_id, id_vg_carta, quantidade) VALUES (?, ?, 1) ON DUPLICATE KEY UPDATE quantidade = quantidade + 1");
-$query->bind_param("ii", $user_id, $card_id);
-$query->execute();
+$id_carta = $_POST['id_carta'];
 
-// Atualizar quantidade no estoque
-$query = $conn->prepare("UPDATE cartas_vg SET quantidade = quantidade - 1 WHERE id_vg_carta = ?");
-$query->bind_param("i", $card_id);
-$query->execute();
+// Se o carrinho ainda não existe, cria um
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 
-echo json_encode(['success' => true]);
+// Adiciona +1 no contador da carta específica
+if (isset($_SESSION['cart'][$id_carta])) {
+    $_SESSION['cart'][$id_carta]++;
+} else {
+    $_SESSION['cart'][$id_carta] = 1;
+}
+
+// Calcula o total de itens no carrinho
+$totalItems = array_sum($_SESSION['cart']);
+
+// Retorna resposta JSON
+echo json_encode(["success" => true, "cart_count" => $totalItems]);
 ?>
