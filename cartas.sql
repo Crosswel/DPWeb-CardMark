@@ -26,7 +26,7 @@ USE `cartas`;
 --
 -- Estrutura da tabela `cartas`
 --
-
+DROP TABLE IF EXISTS `cartas`;
 CREATE TABLE `cartas` (
   `id` int NOT NULL,
   `nome` varchar(100) NOT NULL,
@@ -108,7 +108,7 @@ INSERT INTO `cartas` (`id`, `nome`, `box_set`, `preco`, `imagem`, `quantidade`, 
 --
 -- Estrutura da tabela `compra`
 --
-
+DROP TABLE IF EXISTS `compra`;
 CREATE TABLE `compra` (
   `id_compra` int NOT NULL,
   `id_user` int NOT NULL,
@@ -133,7 +133,7 @@ INSERT INTO `compra` (`id_compra`, `id_user`, `id_carta`, `quantidade`, `estado`
 --
 -- Estrutura da tabela `users`
 --
-
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int NOT NULL,
   `user_name` varchar(100) NOT NULL,
